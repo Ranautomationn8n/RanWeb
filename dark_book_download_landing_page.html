@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rania HAMADACHE — Your n8n guide</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0b0b0f;
+      --bg-soft: #12121a;
+      --accent: #f65cc3; /* violet */
+      --accent-soft: rgba(230, 54, 215, 0.35);
+      --text: #e6e6eb;
+      --muted: #9a9aa6;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth; /* smooth scrolling */
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(80% 80% at 50% 0%, #040407 0%, var(--bg) 60%);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .card {
+      max-width: 880px;
+      width: 100%;
+      background: linear-gradient(180deg, var(--bg-soft), rgba(0, 0, 0, 0.9));
+      border-radius: 28px;
+      padding: 3.5rem 3rem;
+      box-shadow: 0 40px 120px rgba(0,0,0,0.65);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(600px 200px at 80% -10%, var(--accent-soft), transparent 60%);
+      pointer-events: none;
+    }
+
+    .author {
+      font-size: 0.9rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.8rem;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 1.2rem;
+    }
+
+    h1 span {
+      color: var(--accent);
+    }
+
+    .tagline {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 600px;
+      margin-bottom: 2.5rem;
+    }
+
+    .divider {
+      width: 100px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      margin: 2.2rem 0;
+      opacity: 0.7;
+    }
+
+    .description {
+      font-size: 1rem;
+      line-height: 1.8;
+      max-width: 720px;
+      color: #d7d7de;
+      margin-bottom: 3rem;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+    }
+
+    .btn {
+      text-decoration: none;
+      padding: 0.9rem 2.2rem;
+      border-radius: 999px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: all 0.25s ease;
+      position: relative;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #df32c8);
+      color: white;
+      box-shadow: 0 12px 30px rgba(231, 40, 215, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 45px rgba(230, 54, 215, 0.35);
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.15);
+      color: var(--text);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.06);
+    }
+
+    /* About Author Section */
+    #about-author {
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    #about-author h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+
+    #about-author p {
+      color: #d7d7de;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* Comments Section */
+    #comments {
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    #comments h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    #comments form {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    #comments input, 
+    #comments textarea {
+      padding: 0.8rem;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: var(--bg-soft);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+    }
+
+    #comments button {
+      cursor: pointer;
+    }
+
+    footer {
+      margin-top: 3.5rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    footer span {
+      opacity: 0.85;
+    }
+
+    @media (max-width: 640px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      .card {
+        padding: 2.5rem 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="author">Written by Rania HAMADACHE</div>
+
+    <h1>Your low code <span>N8N</span> guide for beginners</h1>
+
+    <p class="tagline">
+      A theoretical study of n8n aimed at building a solid understanding before practical implementation.
+    </p>
+
+    <div class="divider"></div>
+
+    <p class="description">
+      This guide explores the world of n8n as a system shaped by control, logic, and invisible flows.
+Behind every automation lies intention, structure, and quiet precision.
+You are not here to blindly connect nodes,  you are here to understand what moves beneath them.
+      <br /><br />
+      This book is written for those who refuse chaos, who want mastery before execution, and who choose control over guesswork.
+n8n does not demand speed. It demands awareness. And once you see the system clearly, it obeys.
+    </p>
+
+    <div class="actions">
+      <a href="your_n8n_guide..pdf" class="btn btn-primary" download>
+        Download the Book
+      </a>
+      <a href="#about-author" class="btn btn-secondary">
+        About the Author
+      </a>
+    </div>
+
+    <!-- About the Author Section -->
+    <div id="about-author">
+      <h2>RANIA HAMADACHE</h2>
+      <p>
+
+       The writer of this book (aka guide)is a 25year old woman with a master’s degree in theoretical physics, who made a switch into the world of n8n, carrying a mind full of chaos and ideas. The idea for this book came unexpectedly. One morning, during an argument with my father, while I was trying to explain my idea, he suddenly stopped me, saying, “I won’t listen to someone who has never written a book.”
+
+At the time, I was attempting to write a novel, being both a passionate reader and a fan of storytelling. I realized that explaining n8n and organizing my ideas in writing felt more natural, and perhaps even easier.
+
+I hope this book serves as a helpful starting point for your journey into n8n. Keep in mind, this guide is meant strictly for understanding: it answers some beginner questions, provides a clear introduction, and saves you time jumping from one YouTube channel to another. But application is key—put these ideas into practice to truly excel in your learning.
+
+— H. Rania
+
+      </p>
+    </div>
+
+    <!-- Comments Section -->
+    <div id="comments">
+      <h2>Leave a Comment</h2>
+
+      <form action="https://formspree.io/f/xkonlkjd" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <textarea name="message" rows="4" placeholder="Your Comment" required></textarea>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+      <p style="color: var(--muted); margin-top: 0.5rem;">Your comment will be sent to me and may be displayed here after moderation.</p>
+    </div>
+
+    <footer>
+      <span>© 31.12.2025 Rania HAMADACHE</span>
+      <span>N8N • AUTOMATION • AI</span>
+    </footer>
+  </main>
+</body>
+</html>
